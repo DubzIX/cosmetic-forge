@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Archipelago Cosmetic Forge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div>
+          <div class="kicker">SM64 / Spicy Mycena 64 / v1.0.1</div>
+          <h1>Cosmetic Forge</h1>
+        </div>
+        <div>
+          <p class="lede">Choose the look and sound of your run. The complete YAML is generated below, ready to copy into your player file.</p>
+          <div class="actions">
+            <button class="button secondary" id="themeToggle">Use dark mode</button>
+            <button class="button" id="copyYaml">Copy YAML</button>
+          </div>
+        </div>
+      </header>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Cosmetic options</h2>
+          <p>These settings match the current SM64 Spicy Mycena 64 randomizer.</p>
+        </div>
+        <div class="controls">
+          <div class="control wide">
+            <div class="mario-preview-layout">
+              <div class="mario-controls">
+                <label class="label" for="palettePreset">Mario palette</label>
+                <select id="palettePreset"></select>
+                <div class="palette-grid" id="paletteGrid" style="margin-top: 14px"></div>
+                <p class="hint">Choose Custom to edit each color. Fixed colors use names or RGB values; Random lets the randomizer choose.</p>
+              </div>
+              <div>
+                <div class="sprite-panel"><canvas id="sprite" aria-label="Live Mario palette preview"></canvas></div>
+                <div class="caption">Live palette preview</div>
+              </div>
+            </div>
+          </div>
+          <div class="control">
+            <span class="label" id="musicLabel">Music shuffle</span>
+            <div class="segmented" role="group" aria-labelledby="musicLabel">
+              <label><input type="radio" name="music" value="off" checked /><span>Off</span></label>
+              <label><input type="radio" name="music" value="shuffle" /><span>Shuffle</span></label>
+              <label><input type="radio" name="music" value="random_on_load" /><span>Random</span></label>
+            </div>
+          </div>
+          <div class="control">
+            <span class="label" id="skyboxLabel">Skybox shuffle</span>
+            <div class="segmented" role="group" aria-labelledby="skyboxLabel">
+              <label><input type="radio" name="skybox" value="off" checked /><span>Off</span></label>
+              <label><input type="radio" name="skybox" value="shuffle" /><span>Shuffle</span></label>
+              <label><input type="radio" name="skybox" value="random_on_load" /><span>Random</span></label>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="panel yaml-panel">
+        <div class="panel-head">
+          <div class="yaml-toolbar">
+            <div>
+              <h2>Raw YAML</h2>
+              <p>Copy this block under your game's options or replace the existing one.</p>
+            </div>
+            <span class="status" id="status">Ready</span>
+          </div>
+        </div>
+        <div class="yaml-wrap">
+          <textarea id="rawYaml" readonly spellcheck="false"></textarea>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
