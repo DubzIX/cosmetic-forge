@@ -177,7 +177,7 @@ document.querySelector("#copyYaml").onclick = async () => {
 };
 let storedTheme = null;
 try { storedTheme = localStorage.getItem("yaml-editor-theme"); } catch { storedTheme = null; }
-if (storedTheme === "dark") document.body.classList.add("dark");
+if (storedTheme !== "light") document.body.classList.add("dark");
 elements.themeToggle.onclick = () => {
   document.body.classList.toggle("dark");
   try { localStorage.setItem("yaml-editor-theme", document.body.classList.contains("dark") ? "dark" : "light"); } catch {}
